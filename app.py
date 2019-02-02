@@ -3,11 +3,18 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 def bracket_check(input):
-    brackets = ['{}']
-    while any(x in input for x in brackets):
-        for br in brackets:
-            input = input.replace(br, '')
-    return not input
+    opening = tuple('{')
+    closing = tuple('}')
+    mapping = dict(zip(opening, closing))
+    queue = []
+
+    for letter in input:
+        if letter in opening:
+            queue.append(mapping[letter])
+        elif letter in closing:
+            if not queue or letter != queue.pop():
+                return False
+    return not queue
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
