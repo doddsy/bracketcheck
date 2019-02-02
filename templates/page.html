@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bracket Check</title>
+</head>
+
+<body>
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">Atlas Bracket Checker</h1>
+Input your action content to check for unbalanced brackets. Personal note to say if you use this for small actions, fuck you
+  <form method="post" action="{{ url_for('hello_world') }}"><textarea cols="50" rows="5" required name="content"></textarea><br>
+  <input type="submit"></form>
+  <br><br>
+  
+  Output
+  <input type="text" disabled placeholder="{{ output }}" size="50" readonly>
+<p>True if brackets are balanced, False if brackets are unbalanced.</p>
+</body>
+</html>
